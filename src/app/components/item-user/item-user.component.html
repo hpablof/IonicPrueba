@@ -1,0 +1,9 @@
+<ion-list *ngFor="let user of users | async">
+  <ion-item>
+    <ion-label>
+         {{user.name}}<br>
+        <small>{{user.username}}</small>
+    </ion-label>
+    <ion-label slot="end">{{user.website}}</ion-label>
+  </ion-item>
+</ion-list>

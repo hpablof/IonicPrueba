@@ -1,7 +1,28 @@
-<app-header titulo="pagina2">
+<app-header titulo="Component">
 
 </app-header>
 
 <ion-content>
-
+    <ion-list>
+        <ion-list-header>Select, Picker</ion-list-header>
+      
+        <ion-item>
+          <ion-label>Select </ion-label>
+          <ion-select [interfaceOptions]="customAlertOptions"
+                        [(ngModel)]="selection"
+                        interface="action-sheet" 
+                        placeholder="Select"
+                        (ionChange)="onChange()"
+                        (ionCancel)="onCancel()"
+                        >
+            <ion-select-option *ngFor="let topic of pizzaTopping">{{topic.text}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Picker</ion-label>
+            <ion-button (click)="presentPicker()" >
+                Picker
+            </ion-button>
+        </ion-item>
+      </ion-list>
 </ion-content>

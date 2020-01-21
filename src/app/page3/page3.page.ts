@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController,
+         ActionSheetController, 
+         ModalController,
+        PopoverController} from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
+import { PopoverComponent } from '../components/popover/popover.component';
 
 @Component({
   selector: 'app-page3',
@@ -9,7 +14,13 @@ import { AlertController } from '@ionic/angular';
 export class Page3Page implements OnInit {
 
   private titulo:any;
-  constructor(public alertController:AlertController) { }
+  dataReturned:any;
+  constructor(public alertController:AlertController,
+              private actionSheetController: ActionSheetController,
+              public modalController: ModalController,
+              private popoverController: PopoverController
+              ) { 
+  }
 
   ngOnInit() {
   }
@@ -252,5 +263,62 @@ export class Page3Page implements OnInit {
 
     await alert.present();
   }
-   
+  //  Action Sheet
+  async presentActionSheet() {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Albums',
+      buttons: [{
+        text: 'Delete',
+        role: 'destructive',
+        icon: 'trash',
+        handler: () => {
+          console.log('Delete clicked');
+        }
+      }, {
+        text: 'Share',
+        icon: 'share',
+        handler: () => {
+          console.log('Share clicked');
+        }
+      }, {
+        text: 'Cancel',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+  
+    await actionSheet.present();
+  }
+  // modal
+  async presentModal() {
+    const modal = await this.modalController.create({
+    component: ModalPage,
+      componentProps: { 
+        value: 123 
+      }
+    });
+    
+    modal.onDidDismiss().then((dataReturned) => {
+      if (dataReturned !== null) {
+        this.dataReturned = dataReturned.data;
+        console.log(this.dataReturned);
+      }
+    });
+
+    await modal.present();
+  
+  }
+  // PopOver
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: PopoverComponent,
+      event: ev,
+      translucent: false
+    });
+    await popover.present();
+  }
+ 
 }

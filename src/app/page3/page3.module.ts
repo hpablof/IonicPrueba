@@ -15,7 +15,7 @@ import { ComponentsModule } from '../components/components.module';
     FormsModule,
     IonicModule,
     Page3PageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
   ],
   declarations: [Page3Page]
 })

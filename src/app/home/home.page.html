@@ -1,17 +1,23 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start" color="dark">
+      <ion-menu-button><ion-icon name="menu"></ion-icon></ion-menu-button>
+    </ion-buttons>
     <ion-title>
       Ionic Blank
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
+<app-menu></app-menu>
 <ion-content>
   <div class="ion-padding">
     Titulo
-    <ion-button color="primary" expand="full" (click)="gotoPage1()">Page1</ion-button>
-    <ion-button color="primary" expand="full" (click)="gotoPage2()">Page2</ion-button>
-    <ion-button color="primary" expand="full" (click)="gotoPage3()">Page3</ion-button>
-
+    <ion-button color="primary" expand="full" (click)="gotoAvatar()">Avatar</ion-button>
+    <ion-button color="primary" expand="full" (click)="gotoPage1()">Formulario</ion-button>
+    <ion-button color="primary" expand="full" (click)="gotoPage2()">Componentes Clase</ion-button>
+    <ion-button color="primary" expand="full" (click)="gotoPage3()">Alerts</ion-button>
+    <ion-button color="primary" expand="full" (click)="gotoRest()">Rest</ion-button>
   </div>
+  <app-component1>
+  </app-component1>
 </ion-content>

@@ -10,15 +10,31 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { ComponentsModule } from './components/components.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ModalPageModule } from './modal/modal.module';
+import { PopoverComponent } from './components/popover/popover.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ComponentsModule],
+  declarations: [
+    AppComponent,
+    PopoverComponent
+  ],
+  entryComponents: [
+    PopoverComponent,
+  ],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(),
+    AppRoutingModule, 
+    ComponentsModule, 
+    HttpClientModule,
+    ModalPageModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

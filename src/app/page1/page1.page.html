@@ -1,67 +1,74 @@
-<app-header titulo="Pagina 1">
+<app-header titulo="Formulario">
   
 </app-header>
-<ion-content>
-<!-- List of Text Items -->
-
-<ion-list>
-    <ion-item (click)="gotoHome()" detail>
-        <ion-icon name="wine"></ion-icon>
-        <ion-icon slot="end" name="add"></ion-icon>
-      <ion-label>Pokémon Yellow</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Mega Man X</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>The Legend of Zelda</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Pac-Man</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Super Mario World</ion-label>
-    </ion-item>
-  </ion-list>
-  
+<ion-content>  
   <!-- List of Input Items -->
   <ion-list>
     <ion-item>
-      <ion-label>Input</ion-label>
-      <ion-input></ion-input>
+      <ion-label>Name</ion-label>
+      <ion-input placeholder="Name" [(ngModel)]="person.name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Toggle</ion-label>
-      <ion-toggle slot="end"></ion-toggle>
+      <ion-label>Admin</ion-label>
+      <ion-toggle slot="end" [(ngModel)]="person.admin"></ion-toggle>
+    </ion-item>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Gender</ion-label>
+      </ion-item-divider>
+      <ion-radio-group expand="full" [(ngModel)]="person.gender">
+        <ion-item>
+          <ion-label>Men</ion-label>
+          <ion-radio value="men"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Women</ion-label>
+          <ion-radio value="women"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-item-group>
+
+    <ion-item>
+      <ion-label>Active</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="person.active"></ion-checkbox>
     </ion-item>
     <ion-item>
-      <ion-label>Radio</ion-label>
-      <ion-radio slot="end"></ion-radio>
+      <ion-label>Items</ion-label>
+      <ion-range
+        min="0" max="100"
+        dualKnobs="true" pin="true"
+        snaps="true" step="1"
+        ticks="true" value="0"
+        color="primary"
+        [(ngModel)]="person.items">
+      </ion-range>
     </ion-item>
     <ion-item>
-      <ion-label>Checkbox</ion-label>
-      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="DD MM YYYY HH:mm" [(ngModel)]="person.date" placeholder="DD MM YYYY HH:mm"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Picker</ion-label>
+      <ion-button (click)="presentPicker()">
+        click
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea [(ngModel)]="person.description" placeholder="Description"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Hair Color</ion-label>
+      <ion-select value="brown" [(ngModel)]="person.hair" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="brown">Brown</ion-select-option>
+        <ion-select-option value="blonde">Blonde</ion-select-option>
+        <ion-select-option value="black">Black</ion-select-option>
+        <ion-select-option value="red">Red</ion-select-option>
+      </ion-select>
     </ion-item>
   </ion-list>
   
-  <!-- List of Sliding Items -->
-  <ion-list>
-    <ion-item-sliding>
-      <ion-item>
-        <ion-label>Item</ion-label>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="unread(item)">Unread</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  
-    <ion-item-sliding>
-      <ion-item>
-        <ion-label>Item</ion-label>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="unread(item)">Unread</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+  <ion-button (click)="submit()" expand="full">
+    Submit
+  </ion-button>
 </ion-content>

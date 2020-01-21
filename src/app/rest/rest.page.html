@@ -1,0 +1,18 @@
+<app-header titulo="rest">
+
+</app-header>
+
+<ion-content>
+<ion-list>
+    <!-- <ion-item *ngFor="let item of misPosts | async">
+        <ion-label>
+            {{item.name}} <br>
+            <small>{{item.username}}</small>
+        </ion-label>
+        <ion-label slot="end">{{item.website}}</ion-label>
+    </ion-item> -->
+    <app-item-user [(users)]="misPosts">
+
+    </app-item-user>
+</ion-list>
+</ion-content>

@@ -3,10 +3,15 @@
 </app-header>
 
 <ion-content>
+
   <ion-button color="primary" expand="full" (click)="presentAlert()">Alert</ion-button>
   <ion-button color="primary" expand="full" (click)="presentAlertMultipleButtons()">Multiple Buttons</ion-button>
   <ion-button color="primary" expand="full" (click)="presentAlertConfirm()">Confirm</ion-button>
   <ion-button color="primary" expand="full" (click)="presentAlertPrompt()">Prompt</ion-button>
   <ion-button color="primary" expand="full" (click)="presentAlertRadio()">Radio</ion-button>
   <ion-button color="primary" expand="full" (click)="presentAlertCheckbox()">Check</ion-button>
+  <ion-button color="primary" expand="full" (click)="presentActionSheet()">Action Sheet</ion-button>
+  <ion-button color="primary" expand="full" (click)="presentModal()">Modal</ion-button>
+  <ion-button color="primary" expand="full" (click)="presentPopover($event)">PopOver</ion-button>
+
 </ion-content>

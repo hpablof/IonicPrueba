@@ -20,4 +20,12 @@ export class HomePage {
     this.router.navigate(['page3']);
   }
 
+  gotoAvatar(){
+    this.router.navigate(['avatar']);
+  }
+
+  gotoRest(){
+    this.router.navigate(['rest']);
+  }
+
 }

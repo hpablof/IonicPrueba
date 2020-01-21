@@ -1,0 +1,19 @@
+<app-header titulo="Avatar">
+  
+</app-header>
+
+<ion-content>
+  <ion-searchbar></ion-searchbar>
+  <ion-item *ngFor="let user of users" class="ion-activatable">
+    <ion-avatar slot="start">
+      <img [src]="user.img">
+    </ion-avatar>
+    <ion-label>{{user.name}}</ion-label>
+    <ion-badge [color]="user.badge.color" mode="ios">{{user.badge.number}}</ion-badge>
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-item>
+  <ion-button  color="primary" expand="block" class="ion-activatable" (click)="presentActionSheet()">
+    ActionSheet
+    <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+  </ion-button>
+</ion-content>
