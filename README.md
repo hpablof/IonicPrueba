@@ -1,4 +1,4 @@
-# App3
+# Ionic Prueba
 Aplicacion Ionic de pruebas
 -Avatar
 -Formulario
